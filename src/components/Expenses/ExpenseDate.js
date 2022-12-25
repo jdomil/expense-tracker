@@ -17,7 +17,7 @@ const ExpenseDate = ({ date }) => {
 };
 
 ExpenseDate.propTypes = {
-  date: PropTypes.string.isRequired,
+  date: PropTypes.objectOf(PropTypes.number).isRequired,
 };
 
 export default ExpenseDate;

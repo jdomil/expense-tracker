@@ -31,7 +31,15 @@ const Expenses = ({ items }) => (
 );
 
 Expenses.propTypes = {
-  items: PropTypes.array.isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+        PropTypes.objectOf(PropTypes.string),
+      ])
+    )
+  ).isRequired,
 };
 
 export default Expenses;
