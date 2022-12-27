@@ -6,10 +6,12 @@ import Card from '../UI/Card';
 
 import './ExpenseItem.css';
 
-const ExpenseItem = ({ date, title, amount }) => {
+const ExpenseItem = ({ title, date, amount }) => {
   const [expenseTitle, setExpenseTitle] = useState(title);
 
-  const clickHandler = () => setExpenseTitle('Updated!');
+  const clickHandler = () => {
+    setExpenseTitle('Updated!');
+  };
 
   return (
     <Card className='expense-item'>
@@ -28,7 +30,7 @@ const ExpenseItem = ({ date, title, amount }) => {
 ExpenseItem.propTypes = {
   date: PropTypes.objectOf(PropTypes.number).isRequired,
   title: PropTypes.string.isRequired,
-  amount: PropTypes.number.isRequired,
+  amount: PropTypes.string.isRequired,
 };
 
 export default ExpenseItem;

@@ -24,7 +24,7 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
     event.preventDefault();
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: Number.parseFloat(enteredAmount).toFixed(2),
       date: new Date(enteredDate),
     };
     onSaveExpenseData(expenseData);
