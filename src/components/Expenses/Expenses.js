@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import ExpenseItem from './ExpenseItem';
 import Card from '../UI/Card';
 import ExpensesFilter from './ExpensesFilter';
+import ExpensesList from './ExpensesList';
 
 import './Expenses.css';
 
@@ -19,20 +19,15 @@ const Expenses = ({ items }) => {
   );
 
   return (
-    <Card className='expenses'>
-      <ExpensesFilter
-        onSelectExpensesYear={selectExpensesYearHandler}
-        selectedExpensesYear={expensesYear}
-      />
-      {filteredItems.map((expense) => (
-        <ExpenseItem
-          key={expense.id}
-          title={expense.title}
-          date={expense.date}
-          amount={expense.amount}
+    <li>
+      <Card className='expenses'>
+        <ExpensesFilter
+          onSelectExpensesYear={selectExpensesYearHandler}
+          selectedExpensesYear={expensesYear}
         />
-      ))}
-    </Card>
+        <ExpensesList items={filteredItems} />
+      </Card>
+    </li>
   );
 };
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './ExpenseForm.css';
 
-const ExpenseForm = ({ onSaveExpenseData }) => {
+const ExpenseForm = ({ onSaveExpenseData, onCancelAddExpense }) => {
   const [enteredTitle, setEnteredTitle] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
@@ -69,6 +69,9 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
         </label>
       </div>
       <div className='new-expense__actions'>
+        <button type='button' onClick={onCancelAddExpense}>
+          Cancel
+        </button>
         <button type='submit'>Add Expense</button>
       </div>
     </form>
@@ -77,6 +80,7 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
 
 ExpenseForm.propTypes = {
   onSaveExpenseData: PropTypes.func.isRequired,
+  onCancelAddExpense: PropTypes.func.isRequired,
 };
 
 export default ExpenseForm;
