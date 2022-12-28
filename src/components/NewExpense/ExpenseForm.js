@@ -13,7 +13,7 @@ const ExpenseForm = ({ onSaveExpenseData, onCancelAddExpense }) => {
   };
 
   const amountChangeHandler = (event) => {
-    setEnteredAmount(event.target.value);
+    setEnteredAmount(Number.parseFloat(event.target.value));
   };
 
   const dateChangeHandler = (event) => {
@@ -24,7 +24,7 @@ const ExpenseForm = ({ onSaveExpenseData, onCancelAddExpense }) => {
     event.preventDefault();
     const expenseData = {
       title: enteredTitle,
-      amount: Number.parseFloat(enteredAmount).toFixed(2),
+      amount: enteredAmount,
       date: new Date(enteredDate),
     };
     onSaveExpenseData(expenseData);

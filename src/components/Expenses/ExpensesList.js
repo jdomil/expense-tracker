@@ -28,6 +28,7 @@ ExpensesList.propTypes = {
     PropTypes.objectOf(
       PropTypes.oneOfType([
         PropTypes.string,
+        PropTypes.number,
         PropTypes.objectOf(PropTypes.string),
       ])
     )

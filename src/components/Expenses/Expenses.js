@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Card from '../UI/Card';
 import ExpensesFilter from './ExpensesFilter';
 import ExpensesList from './ExpensesList';
+import ExpensesChart from './ExpensesChart';
 
 import './Expenses.css';
 
@@ -25,6 +26,7 @@ const Expenses = ({ items }) => {
           onSelectExpensesYear={selectExpensesYearHandler}
           selectedExpensesYear={expensesYear}
         />
+        <ExpensesChart expenses={filteredItems} />
         <ExpensesList items={filteredItems} />
       </Card>
     </li>
@@ -36,6 +38,7 @@ Expenses.propTypes = {
     PropTypes.objectOf(
       PropTypes.oneOfType([
         PropTypes.string,
+        PropTypes.number,
         PropTypes.objectOf(PropTypes.string),
       ])
     )
